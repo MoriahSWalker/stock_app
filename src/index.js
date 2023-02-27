@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/stock/:symbol",
+        path: "/stock/:stock",
         element: <SingleStock />,
       },
     ],

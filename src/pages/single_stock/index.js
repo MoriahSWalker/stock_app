@@ -1,7 +1,22 @@
 import React from "react";
+import "./index.css";
 
+import { useParams } from "react-router-dom";
 const SingleStock = () => {
-  return <div>A Single Stock</div>;
+  let { stock } = useParams();
+  let stockObject = JSON.parse(stock);
+  console.log(stockObject);
+  return (
+    <div>
+      <h2>Stock Info</h2>
+
+      <div>Name: {stockObject.name}</div>
+      <div>Symbol: {stockObject.symbol}</div>
+      <div>Last Price: {stockObject.lastPrice}</div>
+      <div>Change: {stockObject.change}</div>
+      <div>High: {stockObject.high}</div>
+    </div>
+  );
 };
-// have chase explain how to get data from all stocks page into this page
+
 export default SingleStock;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./index.css";
 
 const AllStocks = () => {
   const navigate = useNavigate();
@@ -60,14 +61,15 @@ const AllStocks = () => {
     },
   ]);
 
-  const handleClick = (symbolOfStock) => {
-    console.log(symbolOfStock);
-    navigate(`/stock/${symbolOfStock}`);
+  const handleClick = (stock) => {
+    console.log(stock);
+    let stringifyStock = JSON.stringify(stock);
+    navigate(`/stock/${stringifyStock}`);
   };
 
   let stocksArray = stocks.map((stock) => {
     return (
-      <li onClick={() => handleClick(stock.symbol)} key={JSON.stringify(stock)}>
+      <li onClick={() => handleClick(stock)} key={JSON.stringify(stock)}>
         {stock.name}
         {stock.symbol}
       </li>
